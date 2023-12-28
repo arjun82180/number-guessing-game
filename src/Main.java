@@ -7,30 +7,30 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
 
-        int lowerBound = 1;
-        int upperBound = 100;
+        int smallestnumber = 1;
+        int largestnumber = 100;
         int maxAttempts = 10;
         int score = 0;
 
         System.out.println("Welcome to the Number Guessing Game!");
-        System.out.println("You have selected a number between " + lowerBound + " and " + upperBound + ". Try to guess it.");
+        System.out.println("Computer  have selected a number between 1 to 100. Try to guess it.");
 
         boolean playAgain = true;
 
         while (playAgain) {
-            int numberToGuess = random.nextInt(upperBound - lowerBound + 1) + lowerBound;
+            int numberToGuess = random.nextInt(largestnumber - smallestnumber + 1) + smallestnumber;
             int numberOfTries = 0;
             boolean hasGuessedCorrectly = false;
 
             System.out.println("New round!");
 
             while (numberOfTries < maxAttempts && !hasGuessedCorrectly) {
-                System.out.print("Enter your guess: ");
+                System.out.print("Guess the computer number: ");
                 int userGuess = scanner.nextInt();
                 numberOfTries++;
 
-                if (userGuess < lowerBound || userGuess > upperBound) {
-                    System.out.println("Please enter a number between " + lowerBound + " and " + upperBound + ".");
+                if (userGuess < smallestnumber || userGuess > largestnumber) {
+                    System.out.println("Please enter a number between " + smallestnumber + " and " + largestnumber + ".");
                 } else if (userGuess < numberToGuess) {
                     System.out.println("Too low! Try again.");
                 } else if (userGuess > numberToGuess) {
